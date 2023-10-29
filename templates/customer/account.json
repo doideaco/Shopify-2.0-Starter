@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "main": {
+      "type": "hello-word"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
