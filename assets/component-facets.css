@@ -1,0 +1,24 @@
+.facet-filters__label,
+.facets__heading,
+.facets__summary,
+.product-count__text {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.facet-filters__sort {
+  padding: 5px 7px;
+  border-radius: 3px;
+}
+
+.facets__price {
+  gap: 15px;
+}
+
+.facets__price .field__input {
+  padding: 5px 7px;
+  width: 100px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}

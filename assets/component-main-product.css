@@ -1,0 +1,29 @@
+.main-product-container.grid.product {
+  gap: 15px;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 990px) {
+  .main-product-container.grid.product {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .main-product-container.grid.product .product__media {
+    width: 40%;
+  }
+
+  .main-product-container.grid.product .product__info-wrapper {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .main-product-container.grid.product .product__media {
+    width: 45%;
+  }
+
+  .main-product-container.grid.product .product__info-wrapper {
+    flex: 1;
+  }
+}

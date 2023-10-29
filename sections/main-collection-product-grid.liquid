@@ -1,0 +1,60 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card-product.css' | asset_url | stylesheet_tag }}
+{{ 'component-facets.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+
+<h2 class="center page-title">
+  <a href="{{ collection.url }}">{{- collection.title | escape -}}</a>
+</h2>
+
+<div class="container">
+  {%- paginate collection.products by 15 -%}
+    <div class="collection-header section-header">
+      <div class="filter-drawer__open">Filter</div>
+    </div>
+    <div class="collection-container grid">
+      <div class="collection-filters filter-drawer">
+        <div class="facets-wrapper drawer-content">
+          <div class="filter-drawer__close"><span class="close-icon">X</span></div>
+          {% render 'facets', results: collection %}
+        </div>
+      </div>
+      <div class="collection-products">
+        <div id="ProductGridContainer">
+          <div class="collection grid" id="product-grid" data-id="{{ section.id }}">
+            {%- for product in collection.products -%}
+              <div class="grid__item">
+                {% render 'card-product', card_product: product %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {%- if paginate.pages > 1 -%}
+          {% render 'pagination', paginate: paginate, anchor: '' %}
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endpaginate -%}
+</div>
+
+<script>
+  (function () {
+    const drawer = document.querySelector('.filter-drawer');
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.filter-drawer__open')) {
+        drawer.classList.add('open');
+      } else if (!e.target.closest('.drawer-content') || e.target.closest('.filter-drawer__close')) {
+        drawer.classList.remove('open');
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Collection Settings",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}

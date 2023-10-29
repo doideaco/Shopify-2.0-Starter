@@ -1,0 +1,88 @@
+predictive-search {
+  position: relative;
+}
+
+predictive-search .predictive-search {
+  display: none;
+  position: absolute;
+  width: auto;
+  max-width: 570px;
+  right: 0;
+}
+
+#predictive-search-results {
+  padding-top: 15px;
+  background: #fff;
+}
+
+predictive-search[results='true'][open='true'] .predictive-search {
+  display: block;
+}
+
+.predictive-search__results-groups-wrapper {
+  display: flex;
+}
+
+.predictive-search__result-group {
+  width: 100%;
+  padding: 15px;
+}
+
+.predictive-search__result-group ul {
+  padding: 0;
+}
+
+.predictive-search__result-group li {
+  list-style: none;
+}
+
+.predictive-search__list-item {
+  margin-bottom: 10px;
+}
+
+.predictive-search__list-item a {
+  display: flex;
+  gap: 10px;
+}
+
+.predictive-search__item-heading {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search__input {
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.search-modal__form .field__button {
+  margin: 0 auto;
+  padding: 10px 15px;
+}
+
+predictive-search:not([loading]) .predictive-search__loading-state, predictive-search:not([loading]) .predictive-search-status__loading {
+  display: none;
+}
+
+.predictive-search__loading-state svg {
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 750px) {
+  predictive-search .predictive-search {
+    min-width: 570px;
+  }
+
+  .predictive-search__result-group {
+    width: 50%;
+  }
+
+  .search__input {
+    width: auto;
+  }
+}

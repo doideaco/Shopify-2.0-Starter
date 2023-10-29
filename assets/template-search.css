@@ -1,0 +1,22 @@
+.template-search {
+  text-align: center;
+}
+
+.search__input {
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.template-search__results .collection-products {
+  width: 100%;
+}
+
+.template-search__results .collection-products .grid__item {
+  width: 50%;
+}
+
+@media screen and (min-width: 750px) {
+  .template-search__results .collection-products .grid__item {
+    width: 25%;
+  }
+}

@@ -1,0 +1,13 @@
+.product-card img {
+  width: 100%;
+}
+
+.product-card .product-title {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}

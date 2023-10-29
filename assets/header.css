@@ -1,0 +1,54 @@
+header {
+  padding: 15px 0;
+  width: 100%;
+}
+
+header.section-header .container {
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav>ul.list-menu {
+  display: flex;
+  gap: 25px;
+}
+
+nav>ul.list-menu .header__submenu {
+  position: absolute;
+}
+
+.header__right-wrapper.grid {
+  align-items: center;
+  gap: 15px;
+}
+
+.header__icon svg,
+.header__icon--cart svg {
+  height: 24px;
+  width: 24px;
+}
+
+#cart-icon-bubble {
+  position: relative;
+}
+
+.cart-count-bubble {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
+  background: #000;
+  border-radius: 50%;
+  height: 16px;
+}
+
+.cart-count-bubble span[aria-hidden] {
+  color: #fff;
+  font-size: 10px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
