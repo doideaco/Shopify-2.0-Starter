@@ -1,0 +1,34 @@
+.customer.login,
+.customer.register,
+.customer.addresses,
+.customer.reset-password {
+  text-align: center;
+}
+
+.customer.login .recover-email-container {
+  display: none;
+}
+
+.cancel-recover-button {
+  margin-top: 0;
+}
+
+.recover-email-button {
+  cursor: pointer;
+}
+
+.customer form {
+  max-width: 600px;
+  margin: auto;
+}
+
+.customer form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.customer form input,
+.customer form button {
+  width: 100%;
+}

@@ -34,6 +34,10 @@ nav>ul.list-menu .header__submenu {
   position: relative;
 }
 
+.header__cart-quantity {
+  color: #fff;
+}
+
 .cart-count-bubble {
   position: absolute;
   top: 0;
@@ -42,6 +46,10 @@ nav>ul.list-menu .header__submenu {
   background: #000;
   border-radius: 50%;
   height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
 }
 
 .cart-count-bubble span[aria-hidden] {

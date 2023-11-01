@@ -61,5 +61,12 @@
         product_recommendations_url: '{{ routes.product_recommendations_url }}',
       };
     </script>
+    <script type="application/json" data-ajax-cart-initial-state>
+      {{ cart | json }}
+    </script>
+
+    <script type="module">
+      import '{{ "liquid-ajax-cart-v2.0.1.js" | asset_url }}';
+    </script>
   </body>
 </html>

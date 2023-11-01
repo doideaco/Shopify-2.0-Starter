@@ -56,14 +56,12 @@
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart" id="cart-icon-bubble">
         {% render 'icon-cart' %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
+        <div class="cart-count-bubble">
+          <span data-ajax-cart-bind="item_count" class="header__cart-quantity">
+            {{ cart.item_count }}
+          </span>
+          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+        </div>
       </a>
     {%- endif -%}
   </div>

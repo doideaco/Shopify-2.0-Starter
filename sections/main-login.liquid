@@ -1,24 +1,186 @@
-<section class="container">
-  {% if section.settings.heading != blank %}
-    <h1>{{ section.settings.heading }}</h1>
-  {% endif %}
+{{ 'customer.css' | asset_url | stylesheet_tag }}
 
-  <p>hello world</p>
-</section>
+<div class="customer login container">
+  <div class="recover-email-container" id="recover" tabindex="-1">
+    <h1>
+      {{ 'customer.recover_password.title' | t }}
+    </h1>
+    <p>
+      {{ 'customer.recover_password.subtext' | t }}
+    </p>
+
+    {%- form 'recover_customer_password' -%}
+      {% assign recover_success = form.posted_successfully? %}
+      <div class="field">
+        <label for="RecoverEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
+        <input
+          type="email"
+          value=""
+          name="email"
+          id="RecoverEmail"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          {% if form.errors %}
+            aria-invalid="true"
+            aria-describedby="RecoverEmail-email-error"
+            autofocus
+          {% endif %}
+          placeholder="{{ 'customer.login_page.email' | t }}"
+        >
+      </div>
+      {%- if form.errors -%}
+        <small id="RecoverEmail-email-error" class="form__message">
+          {{ form.errors.messages.form }}
+        </small>
+      {%- endif -%}
+
+      <button>
+        {{ 'customer.login_page.submit' | t }}
+      </button>
+
+      <a href="#login" class="cancel-recover-button">
+        {{ 'customer.login_page.cancel' | t }}
+      </a>
+    {%- endform -%}
+  </div>
+
+  <div tabindex="-1" class="login-form-container">
+    <h1>
+      {{ 'customer.login_page.title' | t }}
+    </h1>
+    {%- if recover_success == true -%}
+      <h3 class="form__message" tabindex="-1" autofocus>
+        {{ 'customer.recover_password.success' | t }}
+      </h3>
+    {%- endif -%}
+    {%- form 'customer_login', novalidate: 'novalidate' -%}
+      {%- if form.errors -%}
+        <h2 class="form__message" tabindex="-1" autofocus>
+          <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+          {{ 'templates.contact.form.error_heading' | t }}
+        </h2>
+        {{ form.errors | default_errors }}
+      {%- endif -%}
+
+      <div class="field">
+        <label for="CustomerEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="CustomerEmail"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          {% if form.errors contains 'form' %}
+            aria-invalid="true"
+          {% endif %}
+          placeholder="{{ 'customer.login_page.email' | t }}"
+        >
+      </div>
+
+      {%- if form.password_needed -%}
+        <div class="field">
+          <label for="CustomerPassword">
+            {{ 'customer.login_page.password' | t }}
+          </label>
+          <input
+            type="password"
+            value=""
+            name="customer[password]"
+            id="CustomerPassword"
+            autocomplete="current-password"
+            {% if form.errors contains 'form' %}
+              aria-invalid="true"
+            {% endif %}
+            placeholder="{{ 'customer.login_page.password' | t }}"
+          >
+        </div>
+
+        <a href="#recover" class="recover-email-button">
+          {{ 'customer.login_page.forgot_password' | t }}
+        </a>
+      {%- endif -%}
+
+      <button>
+        {{ 'customer.login_page.sign_in' | t }}
+      </button>
+
+      <a href="{{ routes.account_register_url }}">
+        {{ 'customer.login_page.create_account' | t }}
+      </a>
+    {%- endform -%}
+  </div>
+
+  {%- if shop.checkout.guest_login -%}
+    <div>
+      <hr>
+      <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
+
+      {%- form 'guest_login' -%}
+        <button>
+          {{ 'customer.login_page.guest_continue' | t }}
+        </button>
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  (function () {
+    const recoverEmailContainer = document.querySelector('.recover-email-container');
+    const loginFormContainer = document.querySelector('.login-form-container');
+    const expandRecover = () => {
+      recoverEmailContainer.style.display = 'block';
+      loginFormContainer.style.display = 'none';
+    };
+    const expandLogin = () => {
+      recoverEmailContainer.style.display = 'none';
+      loginFormContainer.style.display = 'block';
+    };
+    document.querySelector('.recover-email-button').addEventListener('click', () => {
+      expandRecover();
+    });
+    document.querySelector('.cancel-recover-button').addEventListener('click', () => {
+      expandLogin();
+    });
+    if (window.location.hash == '#recover') {
+      expandRecover();
+    }
+  })();
+</script>
 
 {% schema %}
 {
-  "name": "Hello World",
+  "name": "t:sections.main-login.name",
   "settings": [
     {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading"
-    }
-  ],
-  "presets": [
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
     {
-      "name": "Hello World"
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
     }
   ]
 }

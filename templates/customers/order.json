@@ -1,7 +1,8 @@
 {
   "sections": {
     "main": {
-      "type": "hello-word"
+      "type": "main-order",
+      "settings": {}
     }
   },
   "order": [

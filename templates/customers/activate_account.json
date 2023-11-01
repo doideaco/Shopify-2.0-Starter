@@ -1,7 +1,8 @@
 {
   "sections": {
     "main": {
-      "type": "hello-world"
+      "type": "main-activate-account",
+      "settings": {}
     }
   },
   "order": [

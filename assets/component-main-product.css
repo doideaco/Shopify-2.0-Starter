@@ -3,6 +3,22 @@
   flex-direction: column;
 }
 
+.main-product-container ajax-cart-product-form {
+  margin-top: 15px;
+}
+
+.main-product-container ajax-cart-product-form input {
+  width: 70px;
+}
+
+.main-product-container .product-single__quantity {
+  display: inline-block;
+}
+
+.main-product-container button[type="submit"] {
+  display: block;
+}
+
 @media screen and (min-width: 990px) {
   .main-product-container.grid.product {
     flex-direction: row;

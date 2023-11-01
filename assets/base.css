@@ -58,7 +58,6 @@ svg {
 }
 
 button {
-  border-radius: 10px;
   border: 1px solid #000;
   padding: 15px 20px;
   font-size: 1.5rem;
@@ -72,6 +71,18 @@ button {
 button:focus,
 button:focus-visible {
   outline: 4px auto hsla(var(--color-primary) / 1);
+}
+
+input,
+select {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+ajax-cart-quantity,
+ajax-cart-product-form {
+  display: inline-block;
 }
 
 img {

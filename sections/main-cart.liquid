@@ -1,0 +1,68 @@
+{{ 'template-cart.css' | asset_url | stylesheet_tag }}
+
+<div class="my-cart container" data-ajax-cart-section>
+  <h2>Cart ({{ cart.item_count }})</h2>
+
+  <div class="my-cart__items" data-ajax-cart-section-scroll>
+    <!-- Loop through cart items -->
+    {% for line_item in cart.items %}
+      {% assign line_item_index = forloop.index %}
+      <div class="cart-item">
+        <div class="cart_item-title">
+          <a href="{{ line_item.url }}">{{ line_item.title | escape }}</a>
+        </div>
+        <div class="cart_item-price">Price: {{ line_item.final_price | money }}</div>
+
+        <div class="cart_item-quantity">
+          Quantity:
+          <ajax-cart-quantity>
+            <!-- "Minus one" button -->
+            <a
+              data-ajax-cart-quantity-minus
+              href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | minus: 1 }}"
+            >
+              -
+            </a>
+
+            <!-- Item quantity input -->
+            <input
+              data-ajax-cart-quantity-input="{{ line_item_index }}"
+              name="updates[]"
+              value="{{ line_item.quantity }}"
+              type="number"
+              form="my-ajax-cart-form"
+            >
+
+            <!-- "Plus one" button -->
+            <a
+              data-ajax-cart-quantity-plus
+              href="{{ routes.cart_change_url }}?line={{ line_item_index }}&quantity={{ line_item.quantity | plus: 1 }}"
+            >
+              +
+            </a>
+          </ajax-cart-quantity>
+        </div>
+
+        <!-- Item error messages -->
+        <div data-ajax-cart-errors="{{ line_item.key }}"></div>
+
+        <div class="cart_item-total">
+          Total: <strong>{{ line_item.final_line_price | money }}</strong>
+        </div>
+
+        <!-- "Remove item" button -->
+        <a class="cart_item-remove" data-ajax-cart-request-button href="{{ line_item.url_to_remove }}"> Remove </a>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="cart-bottom">
+    <p class="cart-total-price">
+      Total: <span>{{ cart.total_price | money_with_currency }}</span>
+    </p>
+    {% form 'cart', cart, id: 'my-ajax-cart-form' %}
+      <button type="submit" name="checkout">Checkout</button>
+    {% endform %}
+  </div>
+</div>
+
+{% schema %} { "name": "My Ajax cart" } {% endschema %}

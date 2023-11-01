@@ -1,1 +1,27 @@
-<button>buy now</button>
+<ajax-cart-product-form>
+  {% form 'product', product, class: productform_class %}
+    {{ form | payment_terms }}
+      <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants {% if product_card %} hidden {% endif %}">
+        {% for variant in product.variants %}
+          {% if variant.available %}
+
+            <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+          {% else %}
+            <option disabled="disabled">
+              {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+            </option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      <div class="product-single__quantity {% if product_card %} hidden {% endif %}">
+        <label for="Quantity">{{ 'products.product.quantity.label' | t }}</label>
+        <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+      </div>
+
+    <button type="submit" name="add" id="AddToCart" class="button"{% unless product.selected_or_first_available_variant.available %} disabled="disabled"{% endunless %}>
+      <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+    </button>
+    <div data-ajax-cart-errors="form"></div>
+  {% endform %}
+</ajax-cart-product-form>
