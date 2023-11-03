@@ -49,7 +49,7 @@
     >
       {{ content_for_layout }}
     </main>
-
+    {% sections 'footer-group' %}
     <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {

@@ -1,0 +1,19 @@
+<footer>
+  <div class="container">
+    <div class="footer__content">
+      <div class="copyright">
+        <div class="footer__item-bottom footer__item--copyright">
+          <p>Copyright &copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "footer",
+  "settings": []
+}
+{% endschema %}
