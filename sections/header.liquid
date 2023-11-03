@@ -53,7 +53,7 @@
         </span>
       </a>
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart" id="cart-icon-bubble">
+      <span class="header__icon header__icon--cart" id="cart-icon-bubble">
         {% render 'icon-cart' %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         <div class="cart-count-bubble">
@@ -62,10 +62,12 @@
           </span>
           <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
         </div>
-      </a>
+      </span>
     {%- endif -%}
   </div>
 </div>
+
+{% render "cart-drawer" %}
 
 {% schema %}
 {

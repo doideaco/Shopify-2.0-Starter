@@ -24,6 +24,10 @@ nav>ul.list-menu .header__submenu {
   gap: 15px;
 }
 
+.header__icon {
+  cursor: pointer;
+}
+
 .header__icon svg,
 .header__icon--cart svg {
   height: 24px;
