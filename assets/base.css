@@ -127,6 +127,24 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+/* wishlist css */
+[button-wishlist] {
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+[button-wishlist] .icon-heart path {
+  fill: transparent;
+}
+
+#header__wishlist-quantity {
+  color: #fff;
+}
+
+.active[button-wishlist] .icon-heart path {
+  fill: red;
+}
+
 footer {
   opacity: 0.6;
 }

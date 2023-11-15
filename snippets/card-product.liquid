@@ -1,5 +1,10 @@
 <div class="product-card">
   <img src="{{ card_product.featured_media | image_url: width: 533 }}" alt="">
-  <h2 class="product-title"><a href="{{ card_product.url }}">{{ card_product.title }}</a></h2>
-  <p class="product-price">{% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}</p>
+  <h2 class="product-title">
+    <a href="{{ card_product.url }}">{{ card_product.title }}</a>
+  </h2>
+  <div class="product-info">
+    {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+    {%- render 'button-wishlist', product: card_product -%}
+  </div>
 </div>

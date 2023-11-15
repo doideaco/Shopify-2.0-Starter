@@ -102,6 +102,7 @@ class FacetFiltersForm extends HTMLElement {
     }
     const loadingSpinners = document.querySelectorAll('.facets-container .loading__spinner, facet-filters-form .loading__spinner');
     loadingSpinners.forEach((spinner) => spinner.classList.add('hidden'));
+    window.initWishlistButton && window.initWishlistButton();
   }
 
   static renderFilters(html, event) {

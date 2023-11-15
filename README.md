@@ -42,6 +42,10 @@ All User related inside ``customer`` directory
 
 7. **liquid-ajax-cart.js** for ajax cart
 
+## Wishlist page setup
+
+1. Create a new page in the Shopify admin: Admin > Online Store > Pages > Add Page
+2. Set the new page's template to wishlist
 
 ## Usage
 

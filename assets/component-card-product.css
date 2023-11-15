@@ -11,3 +11,14 @@
   text-overflow: ellipsis;
   margin-bottom: 10px;
 }
+
+.product-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-info button {
+  margin: 0;
+}

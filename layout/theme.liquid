@@ -37,6 +37,7 @@
       window.addEventListener('load', () => document.documentElement.classList.add('ready'));
     </script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ content_for_header }}
   </head>

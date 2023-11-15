@@ -1,0 +1,8 @@
+.page-title {
+  margin: 20px;
+}
+
+.product-card {
+  width: calc(25% - 20px);
+  margin: 0 10px;
+}
