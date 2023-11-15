@@ -2,12 +2,27 @@
   "name": "Header",
   "type": "header",
   "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "home_page_only": false,
+        "message_bar": true,
+        "message": true,
+        "message_text": "Hi, this is shopify 2.0 starter theme announcements",
+        "message_link": "",
+        "background_color": "#000",
+        "heading_text_color": "#fff"
+      }
+    },
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "menu": "main-menu"
+      }
     }
   },
   "order": [
+    "announcement-bar",
     "header"
   ]
 }

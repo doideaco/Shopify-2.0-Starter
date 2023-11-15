@@ -1,0 +1,59 @@
+{{ 'section-announcement-bar.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .announcement-bar {
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+{% endstyle %}
+
+{% if section.settings.enable_announcement_bar %}
+  <div class="announcement-bar">
+    <div class="container">
+      <p>{{ section.settings.message_text }}</p>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_announcement_bar",
+      "label": "Active Announcement Bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": "Message Text",
+      "default": "Announce bar message"
+    },
+    {
+      "type": "select",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000",
+      "options": [
+        {
+          "value": "#000",
+          "label": "Dark"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#fff",
+      "options": [
+        {
+          "value": "#fff",
+          "label": "Light"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
