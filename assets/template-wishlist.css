@@ -6,3 +6,9 @@
   width: calc(25% - 20px);
   margin: 0 10px;
 }
+
+.grid-wishlist-empty {
+  display: block;
+  width: 100%;
+  text-align: center;
+}

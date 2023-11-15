@@ -53,6 +53,13 @@ const setupGrid = async (grid) => {
   const wishlistProductCards = responses.join('');
   grid.innerHTML = wishlistProductCards;
   grid.classList.add(GRID_LOADED_CLASS);
+  if (wishlist.length === 0) {
+    grid.innerHTML = `
+      <div class="grid-wishlist-empty">
+        <p>Your haven't added any item in your wishlist!</p>
+      </div>
+    `;
+  }
   initButtons();
 
   const event = new CustomEvent('shopify-wishlist:init-product-grid', {
