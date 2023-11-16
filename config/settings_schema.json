@@ -191,5 +191,16 @@
         "default": true
       }
     ]
+  },
+  {
+    "name": "Wishlist",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "wishlist_enabled",
+        "label": "Enable Wishlist Feature",
+        "default": true
+      }
+    ]
   }
 ]

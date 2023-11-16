@@ -5,6 +5,8 @@
   </h2>
   <div class="product-info">
     {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-    {%- render 'button-wishlist', product: card_product -%}
+    {% if settings.wishlist_enabled %}
+      {%- render 'button-wishlist', product: card_product -%}
+    {% endif %}
   </div>
 </div>

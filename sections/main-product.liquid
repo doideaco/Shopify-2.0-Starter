@@ -27,7 +27,9 @@
         </div>
         <div class="product__price">
           {%- render 'price', product: product, use_variant: true, price_class: 'price--large' -%}
-          {%- render 'button-wishlist', product: product -%}
+          {% if settings.wishlist_enabled %}
+            {%- render 'button-wishlist', product: product -%}
+          {% endif %}
         </div>
         <div class="product__description">
           {{ product.description }}
