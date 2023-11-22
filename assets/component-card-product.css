@@ -23,6 +23,8 @@
   margin: 0;
 }
 
+.product-card .select-variant-btn,
+.product-card ajax-cart-product-form,
 .product-card .select-variant-btn button,
 .product-card ajax-cart-product-form button {
   width: 100%;
