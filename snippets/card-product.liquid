@@ -9,4 +9,9 @@
       {%- render 'button-wishlist', product: card_product -%}
     {% endif %}
   </div>
+  {%- if card_product.variants.size > 1 -%}
+    <a href="{{ card_product.url }}" class="select-variant-btn"><button class="button">Select Option</button></a>
+  {%- else -%}
+    {%- render 'buy-button', product: card_product, product_card: true -%}
+  {%- endif %}
 </div>
